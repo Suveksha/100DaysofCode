@@ -1,0 +1,28 @@
+/*In this problem I have used two markers (start and end) to traverse the array and tmp to swap their values.*/
+import java.util.*;
+public class ReverseArray {
+public static void main(String args[])
+{
+	Scanner sc=new Scanner(System.in);
+	System.out.println("Enter the number of array members");
+	int num=sc.nextInt();
+	int arr[]=new int[num];
+	System.out.println("Enter the array values");
+	for(int i=0;i<num;i++)
+		arr[i]=sc.nextInt();
+	int start=0, end=num-1;
+	int tmp=0;
+	while(start<end)
+	{
+		tmp=arr[start];
+		arr[start]=arr[end];
+		arr[end]=tmp;
+		start++;
+		end--;
+	}
+	
+	for(int i=0;i<num;i++)
+		System.out.println(arr[i]);
+		
+}
+}
