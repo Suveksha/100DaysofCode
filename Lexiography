@@ -1,0 +1,39 @@
+import java.util.*;
+public class Lexiography
+{
+public static void main(String args[])
+{
+Scanner sc=new Scanner(System.in);
+System.out.println("Enter a String");
+String s=sc.next();
+System.out.println("Enter the gap value");
+int k=sc.nextInt();
+String arr[]=s.split("");
+String ch="";
+int tmp=0;
+ArrayList <String> chunks =new ArrayList <String>();
+for(int i=0;i<arr.length;i++)
+{
+//Used two pointers i and j; i is the slow pointer which will visit every letter while j is the faster pointer and this will visit only the upcoming three characters.
+
+if(i<=arr.length-k)
+{
+
+for(int j=i;j<i+3;j++)
+{
+ch=ch+arr[j];
+}
+chunks.add(ch);
+}
+ch="";
+}
+
+Collections.sort(chunks);
+System.out.println("Smallest="+chunks.get(0));
+System.out.println("Largest="+chunks.get(chunks.size()-1
+));
+
+
+
+}
+}
