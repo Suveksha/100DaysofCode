@@ -1,0 +1,67 @@
+import java.util.*;
+public class FindPairs
+{
+public static void main(String args[])
+{
+Scanner sc=new Scanner(System.in);
+int num=sc.nextInt();
+int arr[]=new int[num];
+
+for(int i=0;i<num;i++)
+arr[i]=sc.nextInt();
+ArrayList<Integer> arr2=new ArrayList<Integer>(num);
+if(num==1)
+{
+System.out.println("No pairs available");
+System.exit(0);
+}
+
+
+
+//solve
+/* Works only for even number of array elements and all with pairs. 
+
+
+for(int ptr1=0;ptr1<num;ptr1++)
+{
+
+for(int ptr2=ptr1+1;ptr2<num;ptr2++)
+{
+if(Math.abs(arr[ptr1])==Math.abs(arr[ptr2]))
+{
+arr2.add(arr[ptr1]);
+arr2.add(arr[ptr2]);
+break;
+}
+}
+}
+
+for(int m=0;m<num;m++)
+System.out.print(arr2.get(m)+" ");*/
+
+
+
+
+for(int x=0;x<num;x++)
+{
+if(x++<num)
+for(int y=x++;y<num;y++)
+{
+if(Math.abs(arr[x])==Math.abs(arr[y]))
+{
+arr2.add(Math.abs(arr[x]));
+break;
+}
+}
+}
+
+if(arr2.size()==0||arr2.size()==1)
+{
+System.out.println("No pairs available");
+System.exit(0);
+}
+for(int m=0;m<arr2.size();m++)
+System.out.print(-arr2.get(m)+" "+arr2.get(m)+" ");
+
+}
+}
