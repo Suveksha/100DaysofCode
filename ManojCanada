@@ -1,0 +1,42 @@
+import java.util.*;
+public class ManojCanada
+{
+public static void main(String arg[])
+{
+Scanner sc=new Scanner(System.in);
+String rain=sc.nextLine();
+String arr[]=rain.split(" ");
+
+//SOLVE
+
+int tmp=0;//stores the integer value of the array elements
+int max=0,min=Integer.parseInt(arr[0]);//stores the max and the min values;
+int total=0;//stores the sum of all the elements
+
+for(int i=0;i<arr.length;i++)
+{
+tmp=Integer.parseInt(arr[i]);
+if(tmp>0)
+{
+total=total+tmp;
+
+if(max<tmp)
+max=tmp;
+
+if(tmp<min)
+min=tmp;
+}
+else
+{
+System.out.println("Invalid Input");
+System.exit(0);
+}
+}
+
+System.out.println("TOTAL: "+total);
+System.out.println("Average: "+(total/12));
+System.out.println("Highest: "+max);
+System.out.println("Lowest: "+min);
+}
+}
+
