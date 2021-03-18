@@ -1,0 +1,29 @@
+import java.util.*;
+public class RepeatNumbers
+{
+public static void main(String args[])
+{
+Scanner sc=new Scanner(System.in);
+String nums=sc.nextLine();
+int n=sc.nextInt();
+
+String arr[]=nums.split(" ");
+ArrayList<String> array=new ArrayList<String>(n);
+Collections.sort(array);
+HashSet<String> set=new HashSet<String>();
+
+for(int i=0;i<arr.length;i++)
+{
+if(array.contains(arr[i]))
+{
+set.add(arr[i]);
+}
+else
+array.add(arr[i]);
+}
+
+for(String x: set)
+System.out.print(x+" ");
+
+}
+}
