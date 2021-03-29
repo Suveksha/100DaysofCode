@@ -1,0 +1,47 @@
+import java.util.*;
+
+public class TripleProductCount
+{
+public static void main(String args[])
+{
+Scanner sc=new Scanner(System.in);
+
+String s=sc.nextLine();
+int sum=sc.nextInt();
+
+String array[]=s.split(" ");
+
+//change array to Integer array
+
+int arr[]=new int[array.length];
+for(int i=0;i<array.length;i++)
+arr[i]=Integer.parseInt(array[i]);
+
+HashMap<Integer,Integer> map=new HashMap<Integer, Integer>();
+
+//Map the array into a hashmap
+
+for(int i=0;i<arr.length;i++)
+map.put(arr[i],i);
+
+//use two pointers i and j. i is slow and j is fast to traverse the map
+
+int check=0,count=0;
+for(int i=0;i<arr.length-1;i++)
+{
+for(int j=i+1;j<arr.length;j++)
+{
+if((arr[i]*arr[j]<=sum) && (arr[i]*arr[j]!=0) && (sum%(arr[i]*arr[j])==0))
+{
+check=sum/(arr[i]*arr[j]); //the third number
+}
+
+if(map.containsKey(check) && check!=arr[i] && check!=arr[j] && map.get(check)>i && map.get(check)>j)
+count++;
+}
+}
+
+System.out.println(count);
+
+}
+}
